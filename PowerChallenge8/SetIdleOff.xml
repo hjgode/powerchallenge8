@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DevInfo Action="Set" Persist="true">
+   <Subsystem Name="Device Settings">
+    <Group Name="Display">
+      <Group Name="Backlight">
+         <Field Name="Backlight level">5</Field>
+         <Group Name="Battery Power">
+            <Field Name="Backlight turns off after">0</Field>
+            <Field Name="Backlight On Tap">1</Field>
+        </Group>
+         <Group Name="External Power">
+          
+            <Field Name="Backlight turns off after">0</Field>
+            <Field Name="Backlight On Tap">1</Field>
+        </Group>
+      </Group>
+    </Group>
+      <Group Name="Power Management">
+      <Field Name="Power Profiles">254</Field>
+      <Field Name="Power Button">2</Field>
+         <Group Name="Battery Power">
+            <Field Name="Device turns off after">0</Field>
+            <Field Name="Screen turns off after">0</Field>
+      </Group>
+         <Group Name="External Power">
+            <Field Name="Device turns off after">0</Field>
+            <Field Name="Screen turns off after">0</Field>
+      </Group>
+    </Group>
+  </Subsystem>
+</DevInfo>
