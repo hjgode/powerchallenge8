@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<DevInfo Action="Set" Persist="true">
+  <Subsystem Name="Funk Security">
+    <Group Name="Profile" Instance="Profile_1">
+      <Field Name="SSID">SUPPORT</Field>
+      <Field Name="8021x">None</Field>
+      <Field Name="Encryption">TKIP</Field>
+      <Field Name="PreSharedKey" Encrypt="binary.base64">dzcrvPwmAWjcJAOO75RQEQ==</Field>
+      <Field Name="PSMode">Enabled(Fast PSP)</Field>
+    </Group>
+  </Subsystem>
+  <Subsystem Name="IQueue">
+    <Field Name="Associated Server IP">192.168.128.5</Field>
+  </Subsystem>
+</DevInfo>
+

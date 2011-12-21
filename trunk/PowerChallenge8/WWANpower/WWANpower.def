@@ -1,0 +1,5 @@
+LIBRARY      "WWANpower"
+
+EXPORTS
+	WWANpower
+	

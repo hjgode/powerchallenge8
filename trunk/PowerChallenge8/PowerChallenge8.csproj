@@ -1,0 +1,178 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{23E15CF5-28A9-4B82-BA7E-A1AA154FC056}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PowerChallenge</RootNamespace>
+    <AssemblyName>PowerChallenge</AssemblyName>
+    <ProjectTypeGuids>{4D628B5B-2FBC-4AA6-8C16-197242AEB884};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PlatformFamilyName>PocketPC</PlatformFamilyName>
+    <PlatformID>b2c48bd2-963d-4549-9169-1fa021dce484</PlatformID>
+    <OSVersion>5.2</OSVersion>
+    <DeployDirSuffix>PowerChallenge</DeployDirSuffix>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <NativePlatformName>Windows Mobile 6 Professional SDK</NativePlatformName>
+    <FormFactorID>
+    </FormFactorID>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;$(PlatformFamilyName)</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <FileAlignment>512</FileAlignment>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;$(PlatformFamilyName)</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <FileAlignment>512</FileAlignment>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Intermec.Communication.Bluetooth.DeviceUtility.CF3.5, Version=3.30.1.0, Culture=neutral, PublicKeyToken=acd169b56b6148ba, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Intermec.Communication.LAN.NetworkTools.CF2, Version=1.20.0.0, Culture=neutral, PublicKeyToken=acd169b56b6148ba, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Intermec.Communication.WLAN.80211api_net, Version=1.0.1756.29373, Culture=neutral, PublicKeyToken=acd169b56b6148ba">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Intermec.DataCollection.CF3.5, Version=4.2.0.1849, Culture=neutral, PublicKeyToken=acd169b56b6148ba, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Intermec.Device.CF3.5, Version=3.2.0.1416, Culture=neutral, PublicKeyToken=acd169b56b6148ba, processorArchitecture=MSIL" />
+    <Reference Include="Intermec.DeviceManagement.SmartSystem.ITCSSApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=acd169b56b6148ba" />
+    <Reference Include="Intermec.Multimedia.Camera.CF35, Version=1.3.0.0, Culture=neutral, PublicKeyToken=acd169b56b6148ba, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Windowsce.Forms" />
+    <Reference Include="Microsoft.WindowsMobile.Forms, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActionsClass.cs" />
+    <Compile Include="battery.cs" />
+    <Compile Include="BatteryITC.cs" />
+    <Compile Include="bgThread2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CameraThreadClass2.cs" />
+    <Compile Include="CameraThreadClass3.cs" />
+    <Compile Include="BacklightClass.cs" />
+    <Compile Include="Device.cs" />
+    <Compile Include="FormOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOptions.Designer.cs">
+      <DependentUpon>FormOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoggingClass.cs" />
+    <Compile Include="NativeSync\CoreDLL.cs" />
+    <Compile Include="NativeSync\EventAction.cs" />
+    <Compile Include="NativeSync\ScanEvent.cs" />
+    <Compile Include="NativeSync\SyncObject.cs" />
+    <Compile Include="NativeSync\SystemEvent.cs" />
+    <Compile Include="NativeSync\WaitObjectReturnValue.cs" />
+    <Compile Include="PowerChallenge8.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PowerChallenge8.Designer.cs">
+      <DependentUpon>PowerChallenge8.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PowerSettings.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormOptions.resx">
+      <DependentUpon>FormOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PowerChallenge8.resx">
+      <DependentUpon>PowerChallenge8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="RadioDrivers.cs" />
+    <Compile Include="Registry.cs" />
+    <Compile Include="ScannerClass2.cs">
+    </Compile>
+    <Compile Include="screen.cs" />
+    <Compile Include="ssAPIhelper.cs" />
+    <Compile Include="StopableThreadClass.cs" />
+    <Compile Include="WiFiClass.cs" />
+    <Compile Include="WiMoCamera.cs" />
+    <Compile Include="WlanProfileClass.cs" />
+    <Compile Include="WWANClass.cs" />
+    <Compile Include="WWANProfileClass.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="itcimager.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="README.txt" />
+    <Content Include="SetIdleOff.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WiMoNative.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="wlanProfile.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WWANpower.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="wwanProfile.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="SharpSerializer.Library.Compact\SharpSerializer.Library.Compact.csproj">
+      <Project>{119631D5-DC25-49DE-B50E-6A48C24A5AB0}</Project>
+      <Name>SharpSerializer.Library.Compact</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}">
+        <HostingProcess disable="1" />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

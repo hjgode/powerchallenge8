@@ -1,0 +1,15 @@
+﻿<wap-provisioningdoc>
+  <characteristic type="CM_GPRSEntries">
+    <characteristic type="My Connection">
+      <parm name="DestId" value="{436EF144-B4FB-4863-A041-8F905A62C572}"/>
+      <parm name="Phone" value="internet.t-d1.de"/>
+      <parm name="UserName" value="internet"/>
+      <parm name="Password" value="t-d1"/>
+      <parm name="Enabled" value="1"/>
+      <characteristic type="DevSpecificCellular">
+        <parm name="GPRSInfoAccessPointName" value="internet.t-d1.de"/>
+      </characteristic>
+    </characteristic>
+  </characteristic>
+</wap-provisioningdoc>
+
