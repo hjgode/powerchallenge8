@@ -4,10 +4,18 @@ using System.Collections.Generic;
 using System.Text;
 using System.Runtime.InteropServices;
 
+using HANDLE = System.IntPtr;
+
 namespace NativeSync
 {
     internal class CoreDLL
     {
+        public enum EventFlags
+        {
+            EVENT_PULSE = 1,
+            EVENT_RESET = 2,
+            EVENT_SET = 3
+        }
 
         [DllImport("CoreDLL", SetLastError=true)]
         public static extern IntPtr CreateEvent(
@@ -66,5 +74,8 @@ namespace NativeSync
         [return: MarshalAs(UnmanagedType.Bool)]
         public static extern bool EventModify(IntPtr hEvent, [In, MarshalAs(UnmanagedType.U4)] int dEvent);
 
+        [DllImport("coredll.dll", SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool EventModify(IntPtr hEvent, [In] EventFlags eventFlag);
     }
 }

@@ -44,11 +44,23 @@ namespace PowerChallenge
                     _OffInterval = value;
                 }
         }
+        private void SetBacklightEvent()
+        {
+            IntPtr p = NativeSync.CoreDLL.CreateEvent(IntPtr.Zero, false, true, "BackLightChangeEvent");
+            if (p != IntPtr.Zero)
+            {
+                NativeSync.CoreDLL.EventModify(p, NativeSync.CoreDLL.EventFlags.EVENT_SET);
+                NativeSync.CoreDLL.CloseHandle(p);
+            }
+        }
 
         private int _iBacklightDefault = 1;
         public int iBacklightDefault
         {
-            set { _iBacklightDefault = value; }
+            set { 
+                _iBacklightDefault = value;
+                SetBacklightEvent();
+            }
             get { return _iBacklightDefault; }
         }
 
@@ -70,6 +82,7 @@ namespace PowerChallenge
             {
                 //switch Backlight to base level
                 Display.SetBackLightLevel(_iBacklightDefault);
+                SetBacklightEvent();//needed ??
             }
             catch (Exception ex)
             {
@@ -146,11 +159,13 @@ namespace PowerChallenge
                 {
                     Display.SetBackLightLevel(_iBacklightDefault);
                     Display.SwitchBackLight(true);
+                    SetBacklightEvent();
                 }
                 else
                 {
                     Display.SwitchBackLight(false);
                     Display.SetBackLightLevel(0);
+                    SetBacklightEvent();
                 }
                 return true;
             }
