@@ -66,6 +66,10 @@ namespace PowerChallenge
 
         private bool _bStopThreads = false;
 
+        private int battPercent = 0;
+
+        DateTime startTime;
+
         public PowerChallenge8()
         {
             InitializeComponent();
@@ -91,6 +95,9 @@ namespace PowerChallenge
             timerThreadState = new System.Windows.Forms.Timer();
             timerThreadState.Interval = 3000;
             timerThreadState.Tick += new EventHandler(timerThreadState_Tick);
+
+            startTime = DateTime.Now;
+
 #if !USE_CAMERA
             txtCamera.Visible=false;
             lblCamera.Visible=false;
@@ -263,10 +270,11 @@ namespace PowerChallenge
 #endif
             txtBattPercent.Text = MyBattery.LifePercent.ToString();
             iTimerCount++;
-            //only log batt value every minute
-            if (iTimerCount > iUpdateInterval)
+            //only log batt value every minute and if changed!
+            if (iTimerCount > iUpdateInterval && MyBattery.LifePercent!=battPercent)
             {
                 iTimerCount = 0;
+                battPercent = MyBattery.LifePercent;    //only update Batt percent if changed from previous value!
                 LoggingClass.addLog("Batt percent=" + txtBattPercent.Text);
             }
 
@@ -306,8 +314,11 @@ namespace PowerChallenge
             else
             {
                 DateTime dt = DateTime.Now;
-                string timeString = dt.ToLongTimeString();
-                text = timeString + ": " + text;
+                long elapsedTicks = dt.Ticks - startTime.Ticks;
+                TimeSpan elapsedSpan = new TimeSpan(elapsedTicks);
+
+                string timeString = dt.ToShortDateString() + " " + dt.ToShortTimeString() + "\t" + elapsedSpan.Minutes + "\t";
+                text = timeString + text;
                 fileLog(text + "\r\n");
 
                 if (txtLog.Text.Length > 2000)
@@ -474,6 +485,8 @@ namespace PowerChallenge
                 setupBase();
 
                 addLog("Starting Battlog");
+                
+                startTime = DateTime.Now;
 
                 // let it all come to a rest..
                 addLog("Sleep...");
