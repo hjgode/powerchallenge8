@@ -46,6 +46,8 @@ namespace PowerChallenge
                 bcr = new BarcodeReader(_control, "default");
                 bcr.BarcodeRead += new BarcodeReadEventHandler(bcr_BarcodeRead);
                 bcr.ThreadedRead(true);
+                S9CconfigClass.S9Cconfig.HWTrigger.setHWTrigger(true);
+
                 //img = new Imager();
                 //Imager.PresetMode oldMode = img.Preset;
                 //img.Preset = Imager.PresetMode.Standard_1D_Only;
