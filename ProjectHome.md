@@ -1,0 +1,1 @@
+analyze power usage scenarios and power consumption
